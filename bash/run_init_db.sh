@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Запускаем контейнер PostgreSQL. Можно без указания пути -v echo $path:echo $path
-docker run --name sde-pg -p 5432:5432  -e POSTGRES_USER=test_sde -e POSTGRES_PASSWORD=@sde_password012 -e POSTGRES_DB=demo -e PGDATA=/var/lib/postgresql/data/pgdata -v C:/Users/AGNikolaev/Desktop/ds/sql:/var/lib/postgresql/data -d postgres
+docker run --name sde-pg2 -p 5432:5432  -e POSTGRES_USER=test_sde -e POSTGRES_PASSWORD=@sde_password012 -e POSTGRES_DB=demo -e PGDATA=/var/lib/postgresql/data/pgdata -v C:/Users/AGNikolaev/Desktop/sde_test_db/sql:/var/lib/postgresql/data -d postgres
 
 # Даем время на внесение изменений
 sleep 60
 
 #  Запускаем скрипт для заполнения БД
-docker exec sde-pg psql -U test_sde -d demo -f /var/lib/postgresql/data/init_db/demo.sql
+docker exec sde-pg2 psql -U test_sde -d demo -f /var/lib/postgresql/data/init_db/demo.sql
 
 sleep 10
 
