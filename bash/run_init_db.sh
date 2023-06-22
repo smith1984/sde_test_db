@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Запускаем контейнер PostgreSQL. Можно без указания пути -v echo $path:echo $path
-docker run --name sde-pg2 -p 5432:5432  -e POSTGRES_USER=test_sde -e POSTGRES_PASSWORD=@sde_password012 -e POSTGRES_DB=demo -e PGDATA=/var/lib/postgresql/data/pgdata -v C:/Users/AGNikolaev/Desktop/sde_test_db/sql:/var/lib/postgresql/data -d postgres
+docker run --name sde-pg2 -p 5432:5432  -e POSTGRES_USER=test_sde -e POSTGRES_PASSWORD=@sde_password012 -e POSTGRES_DB=demo -e PGDATA=/var/lib/postgresql/data/pgdata -d -v C:/Users/AGNikolaev/Desktop/sde_test_db/sql:/var/lib/postgresql/data -v C:/Users/AGNikolaev/Desktop/sde_test_db/sql:/docker-entrypoint-initdb.d postgres
 
 # Даем время на внесение изменений
 sleep 60
